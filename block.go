@@ -386,7 +386,11 @@ func (p *Markdown) html(data []byte, doRender bool) int {
 				break
 			}
 
-			j = p.htmlFindEnd(curtag, data[i-1:])
+			// Velocidex: Comment out this function to
+			// allow unbalanced div tags mixed up within
+			// the markdown. This is more intuitive and
+			// usually what we want.
+			// j = p.htmlFindEnd(curtag, data[i-1:])
 
 			if j > 0 {
 				i += j - 1
